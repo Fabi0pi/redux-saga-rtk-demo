@@ -1,5 +1,5 @@
 import './App.css'
-import { useCreatePostMutation, useGetPostsQuery, useLazyGetPostByIDQuery, useLazyGetPostsQuery, useUpdatePostMutation } from './store/slices/apiPost'
+import { useCreatePostMutation, useGetPostsQuery, useLazyGetPostByIDQuery, useLazyGetPostsQuery, useUpdatePostMutation } from './store/slices/post'
 
 const getRandomId = () => Math.floor(Math.random() * 100) + 1;
 
@@ -34,28 +34,28 @@ function App() {
     const newPost = await createPost(post)
     return newPost
   }
-  
+
   //useUpdatePostMutation
   const handleUpdatePost = async () => {
     try {
-        const post = {
-            title: 'update post',
-            body: 'update post'
-        };
+      const post = {
+        title: 'update post',
+        body: 'update post'
+      };
 
-        // Esegui l'update
-        const { data, error } = await updatePost({ id: 99, ...post });
-        
-        if (error) {
-          console.error('Errore durante l\'aggiornamento:', error);
-        } else {
-          console.log('Post aggiornato con successo:', data);
-          await refetch()
-        }
+      // Esegui l'update
+      const { data, error } = await updatePost({ id: 99, ...post });
+
+      if (error) {
+        console.error('Errore durante l\'aggiornamento:', error);
+      } else {
+        console.log('Post aggiornato con successo:', data);
+        await refetch()
+      }
     } catch (error) {
-        console.error('Errore inatteso:', error);
+      console.error('Errore inatteso:', error);
     }
-};
+  };
 
   const LoadingData = () => {
     if (isError) return <div>Errore</div>
@@ -68,12 +68,15 @@ function App() {
 
   return isLoading ? <LoadingData /> : (
     <div>
+      <p>
+        open redux dev tools to see it
+      </p>
       <div className="card">
         <button onClick={handleGetPosts}>
           posts
         </button>
         <p>
-          get posts manual
+          get posts
         </p>
       </div>
       <div className="card">
@@ -100,16 +103,6 @@ function App() {
           update post
         </p>
       </div>
-      {
-        posts?.map(({id, title})=> {//perche non si aggiorna il post?
-          return (
-            <div key={crypto.randomUUID()}>
-              <p>{id}</p>
-              <p>{title}</p> 
-            </div>
-          )
-        })
-      }
     </div>
   )
 }
