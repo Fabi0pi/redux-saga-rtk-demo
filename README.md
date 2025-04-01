@@ -6,3 +6,16 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+#
+
+### Redux Learning Repository
+
+This repository was created to showcase different implementations of Redux for state management in React applications.
+
+Branches 
+
+- rtk-query: Implements state management using RTK Query.
+- redux-saga: Implements state management using Redux Saga.
+
+Each branch demonstrates a different approach, allowing for a comparison of their benefits and use cases.
