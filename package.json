@@ -1,5 +1,5 @@
 {
-  "name": "rtk-query-app",
+  "name": "redux-saga-rtk-demo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
